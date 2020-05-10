@@ -138,22 +138,22 @@ Prop                | Type     | Optional | Default      | Description
 `data`              | array    | No       | []           | array of objects with a unique `key` and `label` to select in the modal. Optional `component` overrides label text.
 `onChange`          | function | Yes      | () => {}     | callback function, when the users has selected an option
 `onModalOpen`       | function | Yes      | () => {}     | callback function, when modal is opening
-`onModalClose`      | function | Yes      | (item) => {} | callback function, when modal is closing. Returns the selected item.
+`onModalClose`      | function | Yes      | () => {}     | callback function, when modal is closing
 `keyExtractor`      | function | Yes      | (data) => data.key   | extract the key from the data item
 `labelExtractor`    | function | Yes      | (data) => data.label | extract the label from the data item
 `componentExtractor`| function | Yes      | (data) => data.component | extract the component from the data item
 `visible`           | bool     | Yes      | false        | control open/close state of modal
-`closeOnChange`     | bool     | Yes      | true         | control if modal closes on select
+`closeOnChange`    | bool     | Yes      | true         | control if modal closes on select
 `initValue`         | string   | Yes      | `Select me!` | text that is initially shown on the button
 `cancelText`        | string   | Yes      | `cancel`     | text of the cancel button
-`disabled`          | bool     | Yes      | false        | `true` disables opening of the modal
-`supportedOrientations`    | ['portrait', 'landscape'] | Yes      | both      | orientations the modal supports
-`keyboardShouldPersistTaps`| `string` / `bool`         | Yes      | `always`  | passed to underlying ScrollView
 `animationType`     | string   | Yes      | `slide`      | type of animation to be used to show the modal. Must be one of `none`, `slide` or `fade`.
-`style`             | object   | Yes      |              | style definitions for the root element
+`disabled`          | bool     | Yes      | false        | `true` disables opening of the modal
 `childrenContainerStyle`| object   | Yes      | {}           | style definitions for the children container view
 `touchableStyle`    | object   | Yes      | {}           | style definitions for the touchable element
 `touchableActiveOpacity`    | number   | Yes      | 0.2           | opacity for the touchable element on touch
+`supportedOrientations`    | ['portrait', 'landscape'] | Yes      | both      | orientations the modal supports
+`keyboardShouldPersistTaps`| `string` / `bool`         | Yes      | `always`  | passed to underlying ScrollView
+`style`             | object   | Yes      |              | style definitions for the root element
 `selectStyle`       | object   | Yes      | {}           | style definitions for the select element (available in default mode only!). NOTE: Due to breaking changes in React Native, RN < 0.39.0 should pass `flex:1` explicitly to `selectStyle` as a prop.
 `selectTextStyle`   | object   | Yes      | {}           | style definitions for the select element (available in default mode only!)
 `overlayStyle`      | object   | Yes      | { flex: 1, padding: '5%', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.7)' } | style definitions for the overlay background element. RN <= 0.41 should override this with pixel value for padding.
@@ -179,9 +179,7 @@ Prop                | Type     | Optional | Default      | Description
 `cancelButtonAccessibilityLabel` | string   | Yes      | undefined | Accessibility label for the cancel button
 `modalOpenerHitSlop` | object | Yes | {} | How far touch can stray away from touchable that opens modal ([RN docs](https://facebook.github.io/react-native/docs/touchablewithoutfeedback.html#hitslop))
 `customSelector`     | node   | Yes | undefined          | Render a custom node instead of the built-in select box.
-`selectedKey`        | any    | Yes | ''                 | Key of the item to be initially selected
-`enableShortPress`          | bool   | Yes | true               | enables short press. This is regular touch behavior.
-`enableLongPress`           | bool   | Yes | false              | enables long press. When true, `onModalOpen` returns `{longPress: true}`
+`selectedKey`     | any   | Yes | ''          | Key of the item to be initially selected
 
 ### Methods
 

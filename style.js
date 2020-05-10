@@ -12,8 +12,10 @@ export default StyleSheet.create({
     overlayStyle: {
         flex:            1,
         padding:         '5%',
+        paddingTop:'15%',
         justifyContent:  'center',
         backgroundColor: 'rgba(0,0,0,0.7)',
+        maxHeight:'90%'
     },
 
     optionContainer: {
