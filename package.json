@@ -27,7 +27,7 @@
     "email": "dan@imake.io"
   },
   "bugs": {
-    "url": "https://github.com/peacechen/react-native-modal-selector/issues"
+    "url": "https://github.com/Tele-Ware/react-native-modal-selector/issues"
   },
   "bundleDependencies": false,
   "contributors": [
@@ -56,7 +56,7 @@
   "directories": {
     "doc": "docs"
   },
-  "homepage": "https://github.com/peacechen/react-native-modal-selector",
+  "homepage": "https://github.com/Tele-Ware/react-native-modal-selector",
   "keywords": [
     "react-native",
     "dropdown",
@@ -73,7 +73,7 @@
   "name": "react-native-modal-selector",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/peacechen/react-native-modal-selector.git"
+    "url": "git+https://github.com/Tele-Ware/react-native-modal-selector.git"
   },
   "scripts": {
     "lint": "eslint ./",
