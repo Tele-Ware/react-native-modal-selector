@@ -292,7 +292,7 @@ export default class ModalSelector extends React.Component {
                             placeholder={t('Home:search')}
                             value={this.state.searchText}
                             onChangeText={text => this.searching(text)}
-                            style={{ fontFamily: FONT_FAMILY, height:RFValue(50), paddingHorizontal:RFValue(10) }}
+                            style={{ fontFamily: FONT_FAMILY, height: RFValue(50), paddingHorizontal: RFValue(10) }}
                         />
 
                         <ScrollView onrea keyboardShouldPersistTaps='always' accessible={this.props.scrollViewAccessible} accessibilityLabel={this.props.scrollViewAccessibilityLabel}>
@@ -347,7 +347,9 @@ export default class ModalSelector extends React.Component {
                 onDismiss={() => this.state.changedItem && this.props.onChange(this.state.changedItem)}
                 avoidKeyboard={true}
             >
-                {this.renderOptionList()}
+                <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+                    {this.renderOptionList()}
+                </KeyboardAvoidingView>
             </Modal>
         );
 
