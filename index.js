@@ -287,31 +287,33 @@ export default class ModalSelector extends React.Component {
             // <Overlay {...overlayProps}>
             <TouchableWithoutFeedback onPress={this.close}>
                 <View style={[styles.overlayStyle, this.props.overlayStyle]}>
-                    <View style={[styles.optionContainer, this.props.optionContainerStyle]}>
-                        <TextInput
-                            placeholder={t('Home:search')}
-                            value={this.state.searchText}
-                            onChangeText={text => this.searching(text)}
-                            style={{ fontFamily: FONT_FAMILY, height: RFValue(50), paddingHorizontal: RFValue(10) }}
-                        />
+                    <View style={{ maxHeight: '90%' }}>
+                        <View style={[styles.optionContainer, this.props.optionContainerStyle]}>
+                            <TextInput
+                                placeholder={t('Home:search')}
+                                value={this.state.searchText}
+                                onChangeText={text => this.searching(text)}
+                                style={{ fontFamily: FONT_FAMILY, height: RFValue(50), paddingHorizontal: RFValue(10) }}
+                            />
 
-                        <ScrollView onrea keyboardShouldPersistTaps='always' accessible={this.props.scrollViewAccessible} accessibilityLabel={this.props.scrollViewAccessibilityLabel}>
-                            <View style={{ paddingHorizontal: 10 }}>
-                                {/* {options} */}
-                                <FlatList
-                                    keyboardShouldPersistTaps={'handled'}
-                                    data={this.state.data}
-                                    renderItem={({ item }) => this.renderOption(item)}
-                                />
-                            </View>
-                        </ScrollView>
-                    </View>
-                    <View style={[styles.cancelContainer, this.props.cancelContainerStyle]}>
-                        <TouchableOpacity onPress={this.close} activeOpacity={this.props.touchableActiveOpacity} accessible={this.props.cancelButtonAccessible} accessibilityLabel={this.props.cancelButtonAccessibilityLabel}>
-                            <View style={[styles.cancelStyle, this.props.cancelStyle]}>
-                                <Text style={[styles.cancelTextStyle, this.props.cancelTextStyle]}>{this.props.cancelText}</Text>
-                            </View>
-                        </TouchableOpacity>
+                            <ScrollView onrea keyboardShouldPersistTaps='always' accessible={this.props.scrollViewAccessible} accessibilityLabel={this.props.scrollViewAccessibilityLabel}>
+                                <View style={{ paddingHorizontal: 10 }}>
+                                    {/* {options} */}
+                                    <FlatList
+                                        keyboardShouldPersistTaps={'handled'}
+                                        data={this.state.data}
+                                        renderItem={({ item }) => this.renderOption(item)}
+                                    />
+                                </View>
+                            </ScrollView>
+                        </View>
+                        <View style={[styles.cancelContainer, this.props.cancelContainerStyle]}>
+                            <TouchableOpacity onPress={this.close} activeOpacity={this.props.touchableActiveOpacity} accessible={this.props.cancelButtonAccessible} accessibilityLabel={this.props.cancelButtonAccessibilityLabel}>
+                                <View style={[styles.cancelStyle, this.props.cancelStyle]}>
+                                    <Text style={[styles.cancelTextStyle, this.props.cancelTextStyle]}>{this.props.cancelText}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </TouchableWithoutFeedback >
