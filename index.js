@@ -195,8 +195,8 @@ export default class ModalSelector extends React.Component {
         this.props.onModalClose();
         this.setState({
             modalVisible: false,
-
         });
+        Keyboard.dismiss()
     }
 
     open = () => {
@@ -248,15 +248,28 @@ export default class ModalSelector extends React.Component {
     }
 
     searching = text => {
-        this.setState({ searchText: text })
 
-        this.setState(prevState => {
-            return {
-                data: this.props.data.filter((ad, i) => {
-                    return ad.label.toLowerCase().startsWith(text.toLowerCase())
-                })
-            }
-        })
+        this.setState({ searchText: text })
+        console.log(this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().startsWith(text.toLowerCase())))
+        let data = []
+        if (this.props.data.filter((ad, i) => ad.label.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.label.toLowerCase().includes(text.toLowerCase())))
+        if (this.props.data.filter((ad, i) => ad.CountryName_Ar.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.CountryName_Ar.toLowerCase().includes(text.toLowerCase())))
+        if (this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().includes(text.toLowerCase())))
+        if (this.props.data.filter((ad, i) => ad.CallingCode.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.CallingCode.toLowerCase().includes(text.toLowerCase())))
+
+        this.setState({ data: [...data] })
+
+        // this.setState(prevState => {
+        //     return {
+        //         data: this.props.data.filter((ad, i) => {
+        //             return ad.label.toLowerCase().startsWith(text.toLowerCase())
+        //         })
+        //     }
+        // })
     }
 
     renderOptionList = () => {
@@ -285,8 +298,9 @@ export default class ModalSelector extends React.Component {
         return (
 
             // <Overlay {...overlayProps}>
+            // <View style={{ height: '100%', }} onPress={this.close}>
             <TouchableWithoutFeedback onPress={this.close}>
-                <View style={[styles.overlayStyle, this.props.overlayStyle]}>
+                <View style={[styles.overlayStyle, this.props.overlayStyle, {}]}>
                     <View style={{ maxHeight: '90%' }}>
                         <View style={[styles.optionContainer, this.props.optionContainerStyle]}>
                             <TextInput
@@ -298,7 +312,7 @@ export default class ModalSelector extends React.Component {
 
                             <ScrollView onrea keyboardShouldPersistTaps='always' accessible={this.props.scrollViewAccessible} accessibilityLabel={this.props.scrollViewAccessibilityLabel}>
                                 <View style={{ paddingHorizontal: 10 }}>
-                                    {/* {options} */}
+
                                     <FlatList
                                         keyboardShouldPersistTaps={'handled'}
                                         data={this.state.data}
@@ -317,6 +331,7 @@ export default class ModalSelector extends React.Component {
                     </View>
                 </View>
             </TouchableWithoutFeedback >
+            // </View>
 
         )
     }
@@ -336,7 +351,7 @@ export default class ModalSelector extends React.Component {
     }
 
     render() {
-
+        // console.log(this.props.data)
         const dp = (
 
             <Modal
@@ -349,7 +364,7 @@ export default class ModalSelector extends React.Component {
                 onDismiss={() => this.state.changedItem && this.props.onChange(this.state.changedItem)}
                 avoidKeyboard={true}
             >
-                <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+                <KeyboardAvoidingView behavior={Platform.OS === 'android' ? "height" : "padding"} style={{ flex: 1, }}>
                     {this.renderOptionList()}
                 </KeyboardAvoidingView>
             </Modal>
