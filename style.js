@@ -10,19 +10,19 @@ const HIGHLIGHT_COLOR = 'rgba(0,118,255,0.9)';
 export default StyleSheet.create({
 
     overlayStyle: {
-        flex:            1,
-        padding:         '5%',
-        paddingTop:'15%',
-        justifyContent:  'center',
+        flex: 1,
+        padding: '5%',
+        paddingTop: '15%',
+        justifyContent: 'center',
         backgroundColor: 'rgba(0,0,0,0.7)',
-        maxHeight:'90%'
+        // maxHeight:'90%'
     },
 
     optionContainer: {
-        borderRadius:    BORDER_RADIUS,
-        flexShrink:      1,
-        marginBottom:    8,
-        padding:         PADDING,
+        borderRadius: BORDER_RADIUS,
+        flexShrink: 1,
+        marginBottom: 8,
+        padding: PADDING,
         backgroundColor: 'rgba(255,255,255,0.8)',
     },
 
@@ -31,56 +31,56 @@ export default StyleSheet.create({
     },
 
     selectStyle: {
-        borderColor:  '#ccc',
-        borderWidth:  1,
-        padding:      PADDING,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        padding: PADDING,
         borderRadius: BORDER_RADIUS,
     },
 
     selectTextStyle: {
         textAlign: 'center',
-        color:     '#333',
-        fontSize:  FONT_SIZE,
+        color: '#333',
+        fontSize: FONT_SIZE,
     },
 
     cancelStyle: {
-        borderRadius:    BORDER_RADIUS,
+        borderRadius: BORDER_RADIUS,
         backgroundColor: 'rgba(255,255,255,0.8)',
-        padding:         PADDING,
+        padding: PADDING,
     },
 
     cancelTextStyle: {
         textAlign: 'center',
-        color:     '#333',
-        fontSize:  FONT_SIZE,
+        color: '#333',
+        fontSize: FONT_SIZE,
     },
 
     optionStyle: {
-        padding:           PADDING,
+        padding: PADDING,
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
     },
 
     optionTextStyle: {
         textAlign: 'center',
-        fontSize:  FONT_SIZE,
-        color:     HIGHLIGHT_COLOR,
+        fontSize: FONT_SIZE,
+        color: HIGHLIGHT_COLOR,
     },
 
     sectionStyle: {
-        padding:           PADDING * 2,
+        padding: PADDING * 2,
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
     },
 
     sectionTextStyle: {
         textAlign: 'center',
-        fontSize:  FONT_SIZE,
+        fontSize: FONT_SIZE,
     },
 
     initValueTextStyle: {
         textAlign: 'center',
-        fontSize:  FONT_SIZE,
-        color:     '#d3d3d3',
+        fontSize: FONT_SIZE,
+        color: '#d3d3d3',
     },
 });
