@@ -250,23 +250,23 @@ export default class ModalSelector extends React.Component {
     searching = text => {
 
         this.setState({ searchText: text })
-        console.log(this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().startsWith(text.toLowerCase())))
+        // console.log(this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().includes(text.toLowerCase())))
         let data = []
-        if (this.props.data.filter((ad, i) => ad.label.toLowerCase().startsWith(text.toLowerCase())))
-            data.push(...this.props.data.filter((ad, i) => ad.label.toLowerCase().startsWith(text.toLowerCase())))
-        if (this.props.data.filter((ad, i) => ad.CountryName_Ar.toLowerCase().startsWith(text.toLowerCase())))
-            data.push(...this.props.data.filter((ad, i) => ad.CountryName_Ar.toLowerCase().startsWith(text.toLowerCase())))
-        if (this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().startsWith(text.toLowerCase())))
-            data.push(...this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().startsWith(text.toLowerCase())))
-        if (this.props.data.filter((ad, i) => ad.CallingCode.toLowerCase().startsWith(text.toLowerCase())))
-            data.push(...this.props.data.filter((ad, i) => ad.CallingCode.toLowerCase().startsWith(text.toLowerCase())))
+        if (this.props.data.filter((ad, i) => ad.label.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.label.toLowerCase().includes(text.toLowerCase())))
+        if (this.props.data.filter((ad, i) => ad.CountryName_Ar.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.CountryName_Ar.toLowerCase().includes(text.toLowerCase())))
+        if (this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().includes(text.toLowerCase())))
+        if (this.props.data.filter((ad, i) => ad.CallingCode.toLowerCase().includes(text.toLowerCase())))
+            data.push(...this.props.data.filter((ad, i) => ad.CallingCode.toLowerCase().includes(text.toLowerCase())))
 
         this.setState({ data: [...new Set(data)] })
 
         // this.setState(prevState => {
         //     return {
         //         data: this.props.data.filter((ad, i) => {
-        //             return ad.label.toLowerCase().startsWith(text.toLowerCase())
+        //             return ad.label.toLowerCase().includes(text.toLowerCase())
         //         })
         //     }
         // })
