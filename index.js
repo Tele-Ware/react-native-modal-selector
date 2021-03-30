@@ -247,11 +247,15 @@ export default class ModalSelector extends React.Component {
             </TouchableOpacity>);
     }
 
-    searching = text => {
+    searching = searchtext => {
 
-        this.setState({ searchText: text })
-        // console.log(this.props.data.filter((ad, i) => ad.CountryName_En.toLowerCase().includes(text.toLowerCase())))
+        this.setState({ searchText: searchtext })
+
+        let text = searchtext
+        if (searchtext.startsWith('+'))
+            text = searchtext.substring(1)
         let data = []
+        console.log(text)
         if (this.props.data.filter((ad, i) => ad.label.toLowerCase().includes(text.toLowerCase())))
             data.push(...this.props.data.filter((ad, i) => ad.label.toLowerCase().includes(text.toLowerCase())))
         if (this.props.data.filter((ad, i) => ad.CountryName_Ar.toLowerCase().includes(text.toLowerCase())))
