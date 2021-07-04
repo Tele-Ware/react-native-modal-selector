@@ -334,7 +334,7 @@ export default class ModalSelector extends React.Component {
                         </View>
                     </View>
                 </View>
-            </TouchableWithoutFeedback >
+            </TouchableWithoutFeedback>
             // </View>
 
         )
@@ -365,7 +365,7 @@ export default class ModalSelector extends React.Component {
                 visible={this.state.modalVisible}
                 onRequestClose={this.close}
                 animationType={this.props.animationType}
-                onDismiss={() => this.state.changedItem && this.props.onChange(this.state.changedItem)}
+                onDismiss={() => { this.setState({ searchText: '', data: this.props.data }); this.state.changedItem && this.props.onChange(this.state.changedItem) }}
                 avoidKeyboard={true}
             >
                 <KeyboardAvoidingView behavior={Platform.OS === 'android' ? "height" : "padding"} style={{ flex: 1, }}>
